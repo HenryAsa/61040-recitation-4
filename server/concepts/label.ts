@@ -13,8 +13,8 @@ export interface LabelDoc extends BaseDoc {
 export default class LabelConcept {
   public readonly labels = new DocCollection<LabelDoc>("labels");
   
-    async create(creator: ObjectId, label: string) {
-      const _id = await this.labels.createOne({ label, creator });
+    async create(creator: ObjectId, label: string, items: Array<ObjectId>) {
+      const _id = await this.labels.createOne({ label, creator, items });
       return { msg: "Label successfully created!", label: await this.labels.readOne({ _id }) };
     }
 
