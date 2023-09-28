@@ -5,6 +5,9 @@ import { NotAllowedError, NotFoundError } from "./errors";
 export interface LabelDoc extends BaseDoc {
   // TODO 1: What should the structure of our Label concept look like?
   // Hint: what do we need to keep track of when using labels?
+  label: string;
+  creator: ObjectId;
+  items: Array<ObjectId>;
 }
 
 export default class LabelConcept {
